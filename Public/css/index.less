@@ -2,41 +2,83 @@
 	margin: 0;
 	padding: 0;
 }
-html{
-	width: 100%;
-	height: 100%;
+
+html,body{
+	height:100%;
+	width: 100%; 
 }
 
 body{
-	width: 100%;
-	height: 100%;
-	font-size: 16px;
 	font-family: "arial";
 	color: #666;
-	overflow: hidden;
-	padding-top: 4em;
-	background: url("../img/back.png");
-	background-size: 100% 100%;
+	#out{
+		overflow: hidden;	
+		background: url("../img/back.png");
+		background-size: 100% 100%;
+	}
+	#top{
+		overflow: hidden;
+		.top_bac{
+			width: 22em;
+			height: 20em;
+			margin: 0 auto;
+			margin-top: 6em;
+			background: url("../img/rank_list.png");
+			background-size: 100% 100%;
+			.first{
+				padding-top: 5.3em;
+			}
+			span{
+				display: block;
+				line-height: 2.33em;
+				text-indent: 5em;
+			}
+		}
+	}
 	#contain{
-		position: relative;
-		left: 0;
-		top: 0;
 		width: 1700%;
 		height: 100%;
+		.name{
+			position: absolute;
+			width: 22em;
+			height: 12em;
+			background: url("../img/name.png") 50% 50%;
+			background-size: 100% 100%;
+			margin: 4em 0;
+		}
+		input{
+			display: block;
+			width: 14em;
+			height: 2em ;
+			line-height: 2em;
+			padding: 0.2em 1em;
+			margin: 6em auto 1em auto;
+		}
+		.but{
+			width: 4em;
+			height: 2em;
+			line-height: 2em;
+			font-size: 1.5em;
+			color: #fff;
+			background-color: #d9ee28;
+			border-radius: 6px;
+			border: 2px #9ac41a;
+			text-align: center;
+			margin: 0 auto;
+		}
 		.cell {
-			width: 5.8%;
+			width: 5.88%;
 			float: left; 
 			.title{
 				width: 22em;
-				height: 11em;
-				margin: 0 auto;
-				margin-bottom: 4em;
+				height: 12em;
+				margin: 1.5em auto;
 				background: url("../img/title.png") 50% 50%;
 				background-size: 100% 100%;
 				p{
 					width: 60%;
 					margin: 0 auto;
-					padding-top: 5em;
+					padding-top: 5.5em;
 					line-height: 1.1em;
 				}
 				span{
@@ -59,7 +101,7 @@ body{
 				padding: 1em;
 				max-height: 2em;
 				margin: 0 auto;
-				margin-bottom: 1.2em;
+				margin-bottom: 1em;
 				background: url("../img/off.png");
 				background-size: 100% 100%;
 			}

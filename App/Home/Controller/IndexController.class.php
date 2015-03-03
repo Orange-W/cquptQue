@@ -7,9 +7,16 @@ class IndexController extends Controller {
 		$this->assign('answerApi_url',U('home/index/answerApi'));
 		$this->assign('on_url',U('public/img/on.png'));
 		$this->assign('questionApi_url',U('home/index/questionApi'));
+		$this->assign('rank_url',U('home/index/rankTop'));
 		$this->display();
 	}
 	
+	public function rankTop(){
+		$select = D('rank')->field('name')->order('count desc')->limit(5)->select();
+		
+		$this->assign('select',$select);
+		$this->display();
+	}
 	
     private function setIn($src){
 		//$public = U('Public');
@@ -114,7 +121,8 @@ class IndexController extends Controller {
 			(I('post.key') == md5('cqupt_question'))  //密文:86b4359bdfdefb5b21d6260476087062
 			&&
 			($content = I('post.content','',''))
-			
+			&&
+			($name = I('post.name'))
 		){
 		
 			$arr = json_decode($content);
@@ -132,23 +140,36 @@ class IndexController extends Controller {
 			
 			
 			if($count >= 15){
-				$ch = "吊吊吊";
+				$ch = "重邮科学家";
+				$yjh = "现在问题来了，重邮问答哪家强？";
 			}else if($count>=12){
-				$ch = "称号4";
+				$ch = "重邮好卧底";
+				$yjh = "快说，你这么多年潜伏在重邮有何目的。";
 			}else if($count>=9){
-				$ch = "称号3";
+				$ch = "重邮小青蛙";
+				$yjh = "童鞋你要多出去蹦哒蹦哒啊！";
 			}else if($count>=6){
-				$ch = "称号2";
+				$ch = "重邮小鲜肉";
+				$yjh = "你这点资历很容易被坏人叔叔骗的噢";
 			}else if($count>=3){
-				$ch = "称号1";
+				$ch = "重邮喵星人";
+				$yjh = "还不够骚年，像好奇的喵星人一样去探索吧喵！";
 			}else{
-				$ch = "渣渣渣";
+				$ch = "重邮小小鸟";
+				$yjh = "初来乍到的你要在学校多飞飞吖。";
 			}
+			
+			$add= array(
+				'name' => $name,
+				'count' => $count
+			);
+			D('rank')->add($add);
 			
 			if($all==15){		
 				$data = array(
 						'ch' => $ch,
 						'grade' => $count,
+						'yjh' => $yjh,
 						'status' => 200
 				);
 			}else{
@@ -161,6 +182,8 @@ class IndexController extends Controller {
 		
 		$this->ajaxReturn($data);
 	}
+	
+	
 }
 
 
