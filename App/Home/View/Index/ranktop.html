@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">	
 </head>
 <body>
+	<div id="out">
 	<div id="top">
 		<div class="top_bac">
 			<span class="first">{$select[0]['name']}</span>
@@ -16,5 +17,10 @@
 			<span>{$select[4]['name']}</span>
 		</div>
 	</div>
+	</div>
 </body>
+<script src="__PUBLIC__/js/zepto.min.js"></script>
+<script type="text/javascript">
+	$('#out').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
+</script>
 </html> 

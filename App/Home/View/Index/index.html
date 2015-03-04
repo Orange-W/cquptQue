@@ -102,7 +102,8 @@
 						$('.name').css('margin-left',($(window).width()-$('.name').width())/2+'px');
 						$('.but').on('touchend',function(){
 							var name = document.getElementsByTagName('input')[0].value;
-							if(name = ""){
+							var str = name.replace(/^\s+|\s+$/g,"");
+							if(!str){
 								alert("请输入名字");
 							}else{
 								$.ajax({
@@ -156,7 +157,7 @@
 			if(Left.scrollLeft%$('.cell').width() == 0){
 				clearInterval(timer);
 			}
-		},10);
+		},3);
 	}
 	//json
 	var putdata = {
