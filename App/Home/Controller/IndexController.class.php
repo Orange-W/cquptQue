@@ -163,9 +163,10 @@ class IndexController extends Controller {
 				'name' => $name,
 				'count' => $count
 			);
-			D('rank')->add($add);
+			
 			
 			if($all==15){		
+				D('rank')->add($add);
 				$data = array(
 						'ch' => $ch,
 						'grade' => $count,
