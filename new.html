@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>重邮问答</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css">	
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+//onloadpage
+$(function(){
+	$('#share').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
+	$('#outer').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
+});
+//
+function Player(){
+	this.ask: {
+		type = "",
+		key =  "",
+		id = ""
+	},
+	this.ans: {
+		type = "";
+		key = "";
+		num = "";
+		content = [];
+	},
+	this.rank: {
+		type = "";
+		key = "";
+		id = "";
+	},
+	this.que: {
+		type = "";
+		key = "";
+		num = "";
+		content = [];
+	}
+}
+//获取题目
+Player.prototype.getQue = function(this.ask){
+	$.ajax({
+		type: "post",
+		url: "",
+		data: {
+			type: que.type,
+			name: que.key,
+			id: que.id
+		},
+		dataType: 'json',
+		success: function(data){
+			this.view();
+		}
+	})
+}
+//发送答案并获取成绩
+Player.prototype.pushAns = function(this.ans){
+	$.ajax({
+		type: "post",
+		url: "",
+		data: {
+			type: ans.type,
+			name: ans.key,
+			content: JSON.stringify(ans.content)
+		},
+		dataType: 'json',
+		success: function(data){
+
+		}
+	})
+}
+//获取排行榜及个人信息
+Player.prototype.getRank = function(this.rank){
+	$.ajax({
+		type: "post",
+		url: "",
+		data: {
+			type: rank.type,
+			name: rank.key,
+			id: rank.id
+		},
+		dataType: 'json',
+		success: function(data){
+
+		}
+	})
+}
+//渲染
+Player.prototype.view = function(que){
+	$.each(que,function(index,val){
+		var Que = "";
+		Que += '';
+		$('.cell').eq(index).find('.que').html(val[index].question);
+		$('.cell').eq(index).find('.que').attr('queId',val[index].qid);
+		var select = val[index].ans;
+		$.each($('.cell').eq(index).find('.ans'),function(index,element){
+			element.eq(index).attr('ansId',(index+1));
+			element.eq(index).html(select[index]);
+		});
+	});
+}
+//滑动
+Player.prototype.slideRight = function(){
+	$('#inner').css();
+}
+
+var player = new Player();
+//开始游戏
+$('.start').on('touchend',function(){
+
+});
+//分享朋友圈
+$('.share').on('touchend',function(){
+	$('#share').css('display','block');
+});
+</script>
+</html>
