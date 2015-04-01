@@ -1,1 +1,0 @@
-a:5:{i:0;s:3:"rid";i:1;s:4:"name";i:2;s:5:"count";s:3:"_pk";s:3:"rid";s:5:"_type";a:3:{s:3:"rid";s:16:"int(11) unsigned";s:4:"name";s:10:"varchar(8)";s:5:"count";s:15:"int(2) unsigned";}}

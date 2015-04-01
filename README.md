@@ -1,3 +1,4 @@
-# cquptQue
 game
-1
+====
+
+my first game for web
